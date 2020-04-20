@@ -2,7 +2,6 @@
 This package provides a function to carry out a LOWESS on Pandas Series objects. 
 LOWESS (locally weighted scatterplot smoothing) \[1, 2\] as defined by STATA \[3\].
 The regressions utilise the techniques in \[4\].
-It 
 
 
 ## Description
@@ -23,7 +22,7 @@ The series need not be sorted and can be in different order, so long as the inde
 
 
 ## Instalation
-Th package can be installed with 
+Th package can be installed with  
 `$ pip install lowess`
 
 Or download from GitHub and install 
