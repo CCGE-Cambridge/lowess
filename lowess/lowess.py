@@ -2,13 +2,13 @@
 :author: Andrew Lee
 :organization: CCGE, PHPC, The University of Cambridge
 :license: GNU General Public License, version 3
-:contact: ajl65@cam.ac.uk
+:contact: ajl65@medschl.cam.ac.uk
 '''
 import numpy as np
 import pandas as pd
 
 
-__version__ = 'v1.?.?'
+__version__ = 'v1.0.0'
 
 
 class LowessError(Exception):
