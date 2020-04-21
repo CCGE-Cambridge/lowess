@@ -7,11 +7,11 @@ The regressions utilise the techniques in \[4\].
 ## Description
 Let x and y be the two variables each of length N, and assume that the data are ordered so that x<sub>i</sub> =< x<sub>i+1</sub> for i=1,...,N-1.
 For each y<sub>i</sub>, a smoothed value y<sub>i</sub><sup>s</sup> is calculated.
-The subset of points used in calculating y<sub>i</sub><sup>s</sup> is  i<sub>-</sub> = max(1, i-k) through i<sub>+</sub> = min(i+k, N), where  
-k = Floor((N * bandwidth - 0.5) / 2).  
+The subset of points used in calculating y<sub>i</sub><sup>s</sup> is  i<sub>-</sub> = max(1, i-k) through i<sub>+</sub> = min(i+k, N), where   
+    k = Floor((N * bandwidth - 0.5) / 2).   
 The weights for each of the observations between j = i<sub>-</sub>,...,i<sub>+</sub> are the tricube  
-w<sub>j</sub> = [1 - (|x<sub>j</sub> - x<sub>i</sub>| / ∆)<sup>3</sup>]<sup>3</sup>  
-where ∆ = 1.0001 max(x<sub>i<sub>+</sub></sub>-x<sub>i</sub>, x<sub>i</sub>-x<sub>i<sub>-</sub></sub>). 
+    w<sub>j</sub> = [1 - (|x<sub>j</sub> - x<sub>i</sub>| / ∆)<sup>3</sup>]<sup>3</sup>  
+where ∆ = 1.0001 max(x<sub>i<sub>+</sub></sub>-x<sub>i</sub>, x<sub>i</sub>-x<sub>i<sub>-</sub></sub>).  
 The smoothed value y<sub>i</sub><sup>s</sup> is then the weighted polynomial regression prediction at x<sub>i</sub>.
 
 x and y should be in the form or Pandas data series.
