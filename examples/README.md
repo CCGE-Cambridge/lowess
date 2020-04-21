@@ -18,6 +18,6 @@ The larger bandwidths will miss the oscillating signal.
 The script `lowess_by_polynomialDegree.py` smooths a noisy quadratic signal using lowess.lowess, varing the degree of the polynomial used in the regression.
 
 The 0th and 1st order polynomials will miss the large scal curvature.
-The higher order polynomials will over fit (high frequency oscillations.)
+The higher order polynomials will over fit.
 
 ![lowess_by_polynomialDegree.png](lowess_by_polynomialDegree.png)
