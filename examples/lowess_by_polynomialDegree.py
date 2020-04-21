@@ -58,6 +58,9 @@ if __name__ == "__main__":
     The higher order polynomials will over fit (high frequency oscillations.)
     '''
 
+    # seed the random number generator so results reproducible
+    np.random.seed((1, 2, 3))
+
     # Generate some noisy data
     x = np.arange(-10, 10, 0.1)
     y = 1.0 + 2.0 * x + 0.3 * x ** 2 + 20.0 * np.random.random(len(x))

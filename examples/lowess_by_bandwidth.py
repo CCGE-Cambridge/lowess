@@ -58,6 +58,9 @@ if __name__ == "__main__":
     The larger bandwidths will miss the oscillating signal.
     '''
 
+    # seed the random number generator so results reproducible
+    np.random.seed((1, 2, 3))
+
     # Generate some noisy data
     x = np.arange(-10, 5, 0.1)
     y = np.sin(x) - 0.5 + np.random.random(len(x))
