@@ -67,7 +67,8 @@ def lowess(x, y, bandwidth=0.2, polynomialDegree=1):
         # Determine the weights for the regression
         weights = triCubicWeights(x[points], value)
         # Perform the regression
-        ySmooth[index] = wLstSqReg(x[points], y[points], 1, weights)[point]
+        ySmooth[index] = wLstSqReg(x[points], y[points], polynomialDegree,
+                                   weights)[point]
 
     return ySmooth
 

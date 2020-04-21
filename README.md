@@ -7,9 +7,9 @@ The regressions utilise some of the ideas in \[4\].
 
 ## Description
 
-### Methods and Formula
-Taken from \[3\]:
 
+
+### Methods and Formula
 Let x and y be the two variables each of length N, and assume that the data are ordered so that x<sub>i</sub> =< x<sub>i+1</sub> for i=1,...,N-1.
 For each y<sub>i</sub>, a smoothed value y<sub>i</sub><sup>s</sup> is calculated.
 The subset of points used in calculating y<sub>i</sub><sup>s</sup> is  i<sub>-</sub> = max(1, i-k) through i<sub>+</sub> = min(i+k, N), where  
@@ -25,6 +25,7 @@ The smoothed value y<sub>i</sub><sup>s</sup> is then the weighted polynomial reg
 
 **NB**: In this implemtation x and y should be [Pandas Series objects](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html "Pandas Series").
 The series need not be sorted and x and y can be in different orders, so long as their indexes have the same elements. 
+
 
 
 ### Usage
@@ -46,10 +47,14 @@ If input is not valid or an error occurs, a `LowessError` exception is raised.
 
 
 
+## Examples
+Some examples are given in the directory `examples`.
+
+
+
 ## Instalation
 Th package can be installed with  
-`$ pip install lowess`
-
+`$ pip install lowess`  
 Or download from GitHub and install 
 
     $ git clone git@github.com:CCGE-Cambridge/lowess.git
@@ -65,6 +70,13 @@ To make the cocumentaion
     $ cd docs
     $ make html
     $ open build/html/index.html
+
+
+
+## Testing
+Unit tests are implemented via `unittest` and are in the file `tests/test_lowess.py`.
+To run the tests first install the package and the run the command:  
+`$ python tests/test_lowess.py`
 
 
 

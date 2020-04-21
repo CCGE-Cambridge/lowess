@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 class TestLowess(unittest.TestCase):
     def setUp(self):
+        # Load the test data.
         self.knownResults = pd.read_csv('tests/testData/test_data_STATA.csv',
                                         index_col='index')
         pass
@@ -40,7 +41,8 @@ class TestLowess(unittest.TestCase):
 
     def testInvalidX(self):
         '''
-        Try calling the function with an invalid argument
+        Try calling the function with an invalid x, and check that an
+        exception is raised.
         '''
         xNaN = self.knownResults['x'].copy()
         xNaN[5] = np.NaN
@@ -61,7 +63,8 @@ class TestLowess(unittest.TestCase):
 
     def testInvalidY(self):
         '''
-        Try calling the function with an invalid argument
+        Try calling the function with an invalid y, and check that an
+        exception is raised.
         '''
         yNaN = self.knownResults['y'].copy()
         yNaN[5] = np.NaN
@@ -82,7 +85,8 @@ class TestLowess(unittest.TestCase):
 
     def testInvalidBandwidth(self):
         '''
-        Try calling the function with an invalid argument
+        Try calling the function with an invalid bandwidth, and check that an
+        exception is raised.
         '''
         invalids = [-0.1, 1.2, '0.7', True, [0.1], None, 1, 0]
         for bw in invalids:
@@ -94,7 +98,8 @@ class TestLowess(unittest.TestCase):
 
     def testInvalidPolynomialDegree(self):
         '''
-        Try calling the function with an invalid argument
+        Try calling the function with an invalid polynomialDegree, and check
+        that an exception is raised.
         '''
         invalids = [-1, 1.2, '1', True, [1], None]
         for dg in invalids:
@@ -106,7 +111,7 @@ class TestLowess(unittest.TestCase):
 
     def testKnownResults(self):
         '''
-        Test the function against STATA results
+        Test the function against known STATA results
         '''
         correct = []
         for deg in [0, 1]:
@@ -119,8 +124,8 @@ class TestLowess(unittest.TestCase):
                 col = 'y_Stata_{}_{}'.format(i, deg)
                 self.knownResults
                 correct.append(max(abs((self.knownResults[col] - tmp) /
-                                       (self.knownResults[col] + tmp)) < 1e-5))
-        self.assertTrue(all(correct), 'Results correct')
+                                       (self.knownResults[col] + tmp))) < 1e-5)
+        self.assertTrue(all(correct), 'Results the same as STATA.')
 
     def testOrder(self):
         '''
@@ -137,7 +142,7 @@ class TestLowess(unittest.TestCase):
 
         eql = all([abs((result[i] - result2[i]) / (result[i] + result2[i])) <
                   1e-10 for i in result.index])
-        self.assertTrue(eql, 'Not equal on shuffel.')
+        self.assertTrue(eql, 'Results equal on shuffle.')
 
 
 if __name__ == '__main__':
