@@ -32,7 +32,7 @@ def lowess(x, y, bandwidth=0.2, polynomialDegree=1):
 
     Args:
         x (pandas.core.series.Series): a Pandas Series containing the x
-            (independent/covariat) values.
+            (independent/covariat) values. The indices must be unique.
         y (pandas.core.series.Series): a Pandas Series containing the y
             (dependent) values. It must have the same index as x, although
             not necessarily in the same order.
@@ -79,7 +79,7 @@ def validateInput(x, y, bandwidth, polynomialDegree):
 
     Args:
         x (pandas.core.series.Series): a Pandas Series containing the x
-            (independent/covariat) values.
+            (independent/covariat) values. The indices must be unique.
         y (pandas.core.series.Series): a Pandas Series containing the y
             (dependent) values. It must have the same index as x, although
             not necessarily in the same order.
@@ -111,6 +111,10 @@ def validateInput(x, y, bandwidth, polynomialDegree):
         # Check for null values
         if s.isna().values.any():
             raise LowessError('x or y contains null/na/NaN/None values.')
+
+    # Check that the index does not contain any duplicate entries.
+    if any(x.index.duplicated()):
+        raise LowessError('The index of x contains duplicates.')
 
     # Check that x and y have the same indices.
     if len(y.index) != len(x.index):

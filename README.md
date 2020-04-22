@@ -35,7 +35,7 @@ The package provides a single module `lowess` with a single function `lowess.low
 This function has the signiture:  
 `lowess.lowess(x, y, bandwidth=0.2, polynomialDegree=1)`  
 where the arguments are:
-1. **x** (pandas.core.series.Series): a Pandas Series containing the x (independent/covariat) values.
+1. **x** (pandas.core.series.Series): a Pandas Series containing the x (independent/covariat) values. The indices must be unique.
 2. **y** (pandas.core.series.Series): a Pandas Series containing the y (dependent) values. It must have the same index as x (although not necessarily in the same order.)
 3. **bandwidth** (float, optional): the bandwidth for smoothing. It must be between 0 and 1. Default is 0.2
 4. **polynomialDegree** (int, optional): The degree of polynomial to use in the regression. It must be >= 0. Default is 1.
@@ -51,7 +51,7 @@ Some examples are given in the directory `examples`.
 
 
 
-## Instalation
+## Installation
 The package can be installed with `pip` via the command:
 `$ pip install lowess`  
 Or download from GitHub and installed via
