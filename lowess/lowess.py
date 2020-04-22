@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 
-__version__ = 'v1.0.2'
+__version__ = 'v1.?.?'
 
 
 class LowessError(Exception):
