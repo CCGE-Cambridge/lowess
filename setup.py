@@ -35,11 +35,12 @@ setup(
     include_package_data=True,
     zip_safe=False,
     url='http://github.com/CCGE-Cambridge/lowess',
+    long_description_content_type='text/markdown',
     description="Lowess smoothed as defined for STATA 13.",
     long_description=open(os.path.join(ROOT, 'README.md')).read(),
     install_requires=["pandas>=1.0.3"],
     classifiers=[
-        'Intended Audience :: Scientists',
+        'Intended Audience :: Science/Research',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3',
     ],
