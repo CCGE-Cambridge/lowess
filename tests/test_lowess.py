@@ -61,6 +61,19 @@ class TestLowess(unittest.TestCase):
                                   bandwidth=0.2,
                                   polynomialDegree=1)
 
+    def testDuplicateIndex(self):
+        '''
+        Try calling the function with a ducplicated index, and check that an
+        exception is raised.
+        '''
+        df = self.knownResults.rename({self.knownResults.index[1]:
+                                       self.knownResults.index[0]})
+        with self.assertRaises(LowessError):
+            _ = lowess.lowess(df['x'],
+                              df['y'],
+                              bandwidth=0.2,
+                              polynomialDegree=1)
+
     def testInvalidY(self):
         '''
         Try calling the function with an invalid y, and check that an
