@@ -52,7 +52,7 @@ Some examples are given in the directory `examples`.
 
 
 ## Installation
-The package can be installed with `pip` via the command:
+The package can be installed with `pip` via the command:  
 `$ pip install lowess`  
 Or download from GitHub and installed via
 
