@@ -42,7 +42,7 @@ where the arguments are:
 
 It returns a Pandas Series containing the smoothed y values, with the same index as y.
 
-If input is not valid or an error occurs, a `LowessError` exception is raised.
+If the input is not valid or an error occurs, a `LowessError` exception is raised.
 
 
 
@@ -52,11 +52,18 @@ Some examples are given in the directory `examples`.
 
 
 ## Installation
+### Via the PyPI package manager
 The package can be installed with `pip` via the command:  
 `$ pip install lowess`  
-Or download from GitHub and installed via
 
-    $ git clone git@github.com:CCGE-Cambridge/lowess.git
+### Via GitHub
+The package can be installed from source via GitHub.
+First download the repository, either via SSH  
+`$ git clone git@github.com:CCGE-Cambridge/lowess.git`  
+or via HTTPS  
+`$ git clone https://github.com/CCGE-Cambridge/lowess.git`  
+Then install the package via
+
     $ cd lowess
     $ pip install .
 
@@ -64,7 +71,7 @@ Or download from GitHub and installed via
 
 ## Documentaion
 Documentaion of the API is provided via Sphinx.
-To make the cocumentaion
+To make the documentaion
 
     $ cd docs
     $ make html
@@ -76,7 +83,7 @@ This may require installation of the package `sphinx`.
 
 ## Testing
 Unit tests are implemented via `unittest` and are in the file `tests/test_lowess.py`.
-To run the tests first install the package and then run the command:  
+To run the tests first download the source code and then run the command:  
 `$ python tests/test_lowess.py`
 
 
