@@ -62,8 +62,7 @@ First download the repository, either via SSH
 `$ git clone git@github.com:CCGE-Cambridge/lowess.git`  
 or via HTTPS  
 `$ git clone https://github.com/CCGE-Cambridge/lowess.git`  
-Then install the package via
-
+Then install the package via  
     $ cd lowess
     $ pip install .
 
@@ -71,8 +70,7 @@ Then install the package via
 
 ## Documentaion
 Documentaion of the API is provided via Sphinx.
-To make the documentaion
-
+To make the documentaion  
     $ cd docs
     $ make html
     $ open build/html/index.html
