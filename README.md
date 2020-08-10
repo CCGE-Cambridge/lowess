@@ -56,7 +56,7 @@ The package can be installed with `pip` via the command:
 `$ pip install lowess`  
 Or download from GitHub and installed via
 
-    $ git clone git@github.com:CCGE-Cambridge/lowess.git
+    $ git clone https://github.com/CCGE-Cambridge/lowess.git
     $ cd lowess
     $ pip install .
 
