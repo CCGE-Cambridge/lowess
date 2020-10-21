@@ -8,7 +8,7 @@ import numpy as np
 import pandas as pd
 
 
-__version__ = 'v1.?.?'
+__version__ = 'v1.0.3'
 
 
 class LowessError(Exception):
@@ -245,16 +245,16 @@ def wLstSqReg(x, y, polynomialDegree, weights):
 
     # Create a 2D array with the monomials for each power up to
     # polynomialDegree for each row in x
-    monomials = (x.astype(np.float64)[:, np.newaxis] **
+    monomials = (x.to_numpy(np.float64)[:, np.newaxis] **
                  np.arange(polynomialDegree + 1))
 
     # Take the square root of the weights
-    sigma = np.sqrt(weights.astype(np.float64))
+    sigma = np.sqrt(weights.to_numpy(np.float64))
 
     # Solve for the regression coefficients.
     try:
         beta = np.linalg.lstsq(monomials * sigma[:, np.newaxis],
-                               y.astype(np.float64) * sigma,
+                               y.to_numpy(np.float64) * sigma,
                                rcond=None)[0]
     except Exception:
         raise LowessError('The least squares regression failed.')
