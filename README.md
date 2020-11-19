@@ -59,13 +59,23 @@ The package can be installed with `pip` via the command:
 ### Via GitHub
 The package can be installed from source via GitHub.
 First download the repository, either via SSH  
-`$ git clone git@github.com:CCGE-Cambridge/lowess.git`  
+
+    $ git clone git@github.com:CCGE-Cambridge/lowess.git
+
 or via HTTPS  
-`$ git clone https://github.com/CCGE-Cambridge/lowess.git`  
+
+    $ git clone https://github.com/CCGE-Cambridge/lowess.git  
+ 
 Then install the package via
 
     $ cd lowess
     $ pip install .
+
+### Requirements
+This package is built on several Python packages, which are listed in `requirements.txt`. 
+They can be installed using the command
+
+    $ pip install -r requirements.txt
 
 
 
@@ -84,16 +94,8 @@ This may require installation of the package `sphinx`.
 ## Testing
 Unit tests are implemented via `unittest` and are in the file `tests/test_lowess.py`.
 To run the tests first download the source code and then run the command:  
-`$ python tests/test_lowess.py`
 
-
-
-## Requirements
-numpy==1.18.2  
-pandas==1.0.3  
-python-dateutil==2.8.1  
-pytz==2019.3  
-six==1.14.0  
+    $ python -m unittest discover
 
 
 
