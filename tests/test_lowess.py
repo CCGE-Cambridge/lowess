@@ -49,11 +49,13 @@ class TestLowess(unittest.TestCase):
         xNonNumeric = self.knownResults['x'].copy()
         xNonNumeric[5] = 'invalid'
         xBool = self.knownResults['x'].copy()
-        xBool[5] = 'True'
+        xBool[5] = True
         xLong = self.knownResults['x'].copy().append(pd.Series([0.1],
                                                      index=['a']))
+        xIndex = self.knownResults['x'].copy()
+        xIndex.index = [i + 100 for i in range(len(xIndex))]
         invalids = [self.knownResults['x'].to_numpy(), 'a', True, xNaN,
-                    xNonNumeric, xBool, xLong]
+                    xNonNumeric, xBool, xLong, xIndex]
         for x in invalids:
             with self.assertRaises(LowessError):
                 _ = lowess.lowess(x,
@@ -114,7 +116,7 @@ class TestLowess(unittest.TestCase):
         Try calling the function with an invalid polynomialDegree, and check
         that an exception is raised.
         '''
-        invalids = [-1, 1.2, '1', True, [1], None]
+        invalids = [-1, 1.2, '1', True, [1], None, len(self.knownResults) + 1]
         for dg in invalids:
             with self.assertRaises(LowessError):
                 _ = lowess.lowess(self.knownResults['x'],
