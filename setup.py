@@ -7,6 +7,17 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 ROOT = os.path.abspath(os.path.dirname(__file__))
 
 
+def readRequirements(fname):
+    '''
+    Read the requirements from the requirements file
+    '''
+    requirements = []
+    if os.path.exists(fname):
+        with open(fname) as fp:
+            requirements = fp.read().splitlines()
+    return [r.replace('==', '>=') for r in requirements]
+
+
 def find_version(fname):
     '''
     Parse file & return version number matching v0.0.1 regex
@@ -38,7 +49,7 @@ setup(
     long_description_content_type='text/markdown',
     description="Lowess smoothed as defined for STATA 13.",
     long_description=open(os.path.join(ROOT, 'README.md')).read(),
-    install_requires=["pandas>=1.0.3"],
+    install_requires=readRequirements('requirements.txt'),
     classifiers=[
         'Intended Audience :: Science/Research',
         'Operating System :: OS Independent',

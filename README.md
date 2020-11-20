@@ -97,6 +97,13 @@ To run the tests first download the source code and then run the command:
 
     $ python -m unittest discover
 
+Coverage can be tested using `coverage` using:
+
+    $ coverage run -m unittest discover
+    $ coverage report -m 
+
+This may require installation of the package `coverage`.
+
 
 
 ## License
