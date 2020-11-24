@@ -10,7 +10,7 @@ The regressions utilises some of the methods in \[4\].
 
 
 ### Methods and Formula
-Let x and y be the two variables each of length N, and assume that the data are ordered so that x<sub>i</sub> <= x<sub>i+1</sub> for i = 1,...,N-1.
+Let x and y be the two variables each of length N, and assume that the data are ordered so that x<sub>i</sub> ≤ x<sub>i+1</sub> for i = 1,...,N-1.
 For each y<sub>i</sub>, a smoothed value y<sub>i</sub><sup>s</sup> is calculated.
 The subset of points used in calculating y<sub>i</sub><sup>s</sup> is  i<sub>-</sub> = max(1, i-k) through i<sub>+</sub> = min(i+k, N), where  
 
