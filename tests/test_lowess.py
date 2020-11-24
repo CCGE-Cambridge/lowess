@@ -1,15 +1,11 @@
 '''
 Test suite for lowess package
 '''
-import sys
-import logging
 import unittest
 import pandas as pd
 import numpy as np
 import lowess
 from lowess import LowessError
-
-logger = logging.getLogger(__name__)
 
 
 class TestLowess(unittest.TestCase):
@@ -33,7 +29,6 @@ class TestLowess(unittest.TestCase):
                               bandwidth=0.2,
                               polynomialDegree=1)
         except Exception:
-            logger.warning("Unexpected error:", sys.exc_info()[0])
             raised = True
         else:
             raised = False
