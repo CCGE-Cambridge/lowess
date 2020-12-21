@@ -29,11 +29,19 @@ The series need not be sorted and x and y can be in different orders, so long as
 
 
 ### Usage
-Once the package has been installed it can be imported into a python script  
-`import lowess`  
+Once the package has been installed it can be imported into a python script
+
+```python
+import lowess
+```
+
 The package provides a single module `lowess` with a single function `lowess.lowess`.
-This function has the signiture:  
-`lowess.lowess(x, y, bandwidth=0.2, polynomialDegree=1)`  
+This function has the signiture:
+
+```python
+lowess.lowess(x, y, bandwidth=0.2, polynomialDegree=1)
+```
+
 where the arguments are:
 1. **x** (pandas.core.series.Series): a Pandas Series containing the x (independent/covariat) values. The indices must be unique.
 2. **y** (pandas.core.series.Series): a Pandas Series containing the y (dependent) values. It must have the same index as x (although not necessarily in the same order.)
@@ -54,7 +62,8 @@ Some examples are given in the directory `examples`.
 ## Installation
 ### Via the PyPI package manager
 The package can be installed with `pip` via the command:  
-`$ pip install lowess`  
+
+    $ pip install lowess 
 
 ### Via GitHub
 The package can be installed from source via GitHub.
